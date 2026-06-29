@@ -4,12 +4,29 @@ class Solution
         bool match(string s, string word)
         {
 
-            if (word.find(s)==-1)
+            for (int i = 0; i < word.size(); i++)
             {
-                return false;
+
+                bool ok = true;
+
+
+               int  start= i;
+                for (int j = 0; j < s.size(); j++)
+                {
+
+                    if (s[j] != word[start+j])
+                    {
+                        ok = false;
+
+                        break;
+                    }
+                }
+
+                if (ok)
+                    return true;
             }
 
-            return true;
+            return false;
         }
 
     int numOfStrings(vector<string> &patterns, string word)
